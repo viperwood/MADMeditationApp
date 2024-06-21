@@ -22,6 +22,7 @@
         android:layout_height="18dp"
         android:layout_marginTop="74dp"
         android:layout_marginEnd="30dp"
+        android:id="@+id/ExitButton"
         android:src="@drawable/hamburger"
         android:text="exit"
         android:textColor="@color/white"

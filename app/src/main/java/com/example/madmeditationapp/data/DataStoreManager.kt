@@ -29,11 +29,11 @@ class DataStoreManager(val context : Context) {
 
     fun getUserInfo() = context.datastore.data.map { pref ->
         return@map LoginModel(
-            pref[emailKey] ?: "",
             pref[idKey] ?: "",
+            pref[emailKey] ?: "",
+            pref[nickNameKey] ?: "",
             pref[avatarlKey] ?: "",
-            pref[tokenKey] ?: "",
-            pref[nickNameKey] ?: ""
+            pref[tokenKey] ?: ""
         )
 
     }
