@@ -3,19 +3,22 @@
     android:layout_width="wrap_content"
     android:orientation="vertical"
     android:layout_marginStart="26dp"
-    android:background="#253334"
+    android:gravity="center"
     android:layout_height="wrap_content">
 
     <ImageView
+        android:id="@+id/FeelingImage"
         android:layout_width="62dp"
+        android:padding="10dp"
         android:layout_height="65dp"
-        android:src="@drawable/logo"
-        />
+        android:background="@drawable/element_style_icon"/>
 
     <TextView
+        android:id="@+id/FeelingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Спокойным"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="12dp" />
 

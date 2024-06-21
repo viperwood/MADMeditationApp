@@ -44,7 +44,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 service.login(UserLoginModel(userLog.email, userLog.password))
                             if (result.isSuccessful) {
                                 parentFragmentManager.commit {
-                                    replace<MainFragment>(R.id.BaseFragment)
+                                    val userlogin = checkNotNull(result.body())
+                                    val mainFragment = MainFragment(userlogin)
+                                    replace(R.id.BaseFragment, mainFragment)
                                 }
                             } else {
                                 Toast.makeText(
