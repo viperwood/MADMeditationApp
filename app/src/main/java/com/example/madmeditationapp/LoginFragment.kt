@@ -13,8 +13,11 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.example.madmeditationapp.data.DataStoreManager
+import com.example.madmeditationapp.data.Models.LoginModel
 import com.example.madmeditationapp.data.Models.UserLoginModel
 import com.example.madmeditationapp.data.Network.MeditationApi
+import com.example.madmeditationapp.data.SaveUser
 import com.example.madmeditationapp.databinding.FragmentLoginBinding
 import kotlinx.coroutines.launch
 
@@ -27,6 +30,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val button = view.findViewById<Button>(R.id.SignInButton)
         val service = MeditationApi.retrofitService
         binding = FragmentLoginBinding.bind(view)
+        val dataStore = DataStoreManager(requireContext())
         button.setOnClickListener {
             if (binding.Email.text.toString() != null && binding.Email.text.toString() != "") {
                 binding.ErrorEmail.text = ""
@@ -43,6 +47,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             val result =
                                 service.login(UserLoginModel(userLog.email, userLog.password))
                             if (result.isSuccessful) {
+                                val saveUser = checkNotNull(result.body())
+                                dataStore.saveUserLogin(saveUser)
                                 parentFragmentManager.commit {
                                     val userlogin = checkNotNull(result.body())
                                     val mainFragment = MainFragment(userlogin)

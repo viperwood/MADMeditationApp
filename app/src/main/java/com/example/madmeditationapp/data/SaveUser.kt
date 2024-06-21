@@ -1,4 +1,6 @@
 package com.example.madmeditationapp.data
 
-class SaveUser {
-}
+data class SaveUser(
+    var email: String,
+    var password: String
+)
