@@ -5,11 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:layout_height="115dp">
-    <ImageView
-        android:id="@+id/ListPhoto"
+    <Button
+        android:id="@+id/AddButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/sunset"
+        android:background="#6AAE72"
+        android:text="+"
+        android:textSize="40dp"
+        android:textColor="@color/white"
         android:scaleType="fitXY"
         />
 </androidx.cardview.widget.CardView>
